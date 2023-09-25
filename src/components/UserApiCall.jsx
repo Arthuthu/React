@@ -3,11 +3,14 @@ import React, { useState } from 'react';
 export default function UserData() {
   const [userDataList, setUserDataList] = useState([]);
 
-  function getUsers() {
-    fetch(`https://localhost:7260/get`)
-      .then(res => res.json())
-      .then(data => setUserDataList(data))
-      .catch(error => console.error(error));
+  async function getUsers() {
+    try {
+      const response = await fetch(`https://localhost:7260/get`);
+      const data = await response.json();
+      setUserDataList(data);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   return (
