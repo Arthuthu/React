@@ -1,51 +1,34 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import Form from './components/Form'
 import './App.css'
 
 function App() {
-  const [formData, setFormData] = useState({
-    firstName:"",
-    lastName:""
-  })
 
-function handleChange(event){
-  console.log(event)
-  const { name, value } = event.target
-  setFormData(prevFormData => {
-    return {
-      ...prevFormData,
-      [name]: value
-    }
+  const [userData, setUserData] = useState({
+    id: "",
+    username: "",
+    password: "",
+    role: ""
   })
-}
 
 function handleSubmit(event){
   event.preventDefault()
-  // submitToApi(formData)
   console.log(formData)
+}
+
+function callApi(){
+  console.log("Fetching api")
+  fetch(`https://localhost:7260/get`)
+      .then(res => res.json())
+      .then(data => setUserData(data))
+      .catch(error => console.error(error))
+  console.log(userData)
 }
 
   return (
     <>
-      <div>
-        {formData.firstName} {formData.lastName}
-      </div>
-      <div>
-        <form onSubmit={handleSubmit}>
-            <input 
-              type="text"
-              placeholder="First Name"
-              onChange={handleChange}
-              name="firstName"
-              value={formData.firstName} />
-            <input 
-              type="text"
-              placeholder="Last Name"
-              onChange={handleChange}
-              name="lastName"
-              value={formData.lastName} />
-            <button type="submit">Submit</button>
-          </form>
-      </div>
+      <Form />
+      <button onClick={callApi}>Call API</button>
     </>
   )
 }
