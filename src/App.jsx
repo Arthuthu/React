@@ -9,7 +9,7 @@ function App() {
 
 function handleChange(event){
   console.log(event)
-  const{name, value} = event.target
+  const { name, value } = event.target
   setFormData(prevFormData => {
     return {
       ...prevFormData,
@@ -18,13 +18,19 @@ function handleChange(event){
   })
 }
 
+function handleSubmit(event){
+  event.preventDefault()
+  // submitToApi(formData)
+  console.log(formData)
+}
+
   return (
     <>
       <div>
         {formData.firstName} {formData.lastName}
       </div>
       <div>
-        <form>
+        <form onSubmit={handleSubmit}>
             <input 
               type="text"
               placeholder="First Name"
