@@ -1,74 +1,79 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  --primary-background-color: #0c0b0b;
 }
 
 body {
   margin: 0;
+  background-color: var(--primary-background-color);
+  color: #FFF;
+}
+
+.form {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.form-data-value {
+  display: flex;
+  justify-content: space-around;
+  font-size: 2rem;
+  margin: 0 0 20px 0;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.form-input {
+  font-size: 1rem;
+  padding: 5px;
+  margin: 0 4px;
+}
+
+.style-button {
+  background-color: #34b3ee;
+  padding: 10px;
+  font-size: 1.5rem;
+  border-color: transparent;
+  border-radius: 5px;
+  color: #FFF;
+}
+
+.style-button:hover {
+  background-color: #5dc7f7;
+  transition: 500ms;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-.user-info {
+.user-data-label {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  margin: 20px 0 0 0;
+  background-color: #121212;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 10px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.user-data-div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  background-color: #222121;
+  padding: 10px;
+}
+
+.user-data-div:hover {
+  background-color: #383737;
+  transition: 500ms;
+  cursor: pointer;
+}
+
+.user-id,
+.user-name,
+.user-role {
+  width: 100%;
+  text-align: center;
+}
+
+.center-margin {
+  text-align: center;
+  margin: 20px 0;
 }

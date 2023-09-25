@@ -18,25 +18,33 @@ export default function Form(){
     }
 
     return (
-        <div>
-            <form>
-                <input 
-                type="text"
-                placeholder="First Name"
-                onChange={handleChange}
-                name="firstName"
-                value={formData.firstName} />
+        <>
+            <div className="form-data-value">
+                <div>{formData.firstName}</div>
+                <div>{formData.lastName}</div>
+            </div>
+            <div>
+                <form className='form'>
+                    <input 
+                    type="text"
+                    placeholder="First Name"
+                    onChange={handleChange}
+                    name="firstName"
+                    value={formData.firstName}
+                    className="form-input" />
 
-                <input 
-                type="text"
-                placeholder="Last Name"
-                onChange={handleChange}
-                name="lastName"
-                value={formData.lastName} />
+                    <input 
+                    type="text"
+                    placeholder="Last Name"
+                    onChange={handleChange}
+                    name="lastName"
+                    value={formData.lastName}
+                    className="form-input" />
 
-                <button type="submit">Submit</button>
-            </form>
-        </div>
+                    <button type="submit" className='style-button'>Submit</button>
+                </form>
+            </div>
+        </>
     )
 }
 
