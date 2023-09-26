@@ -1,13 +1,13 @@
-import CreateUserForm from './components/CreateUserForm'
-import GetUsers from './components/GetUsers'
+import CreateUser from './components/CreateUserForm'
+import Users from './components/GetUsers'
 import './App.css'
 
 function App() {
 
   return (
     <>
-      <CreateUserForm />
-      <GetUsers />
+      <CreateUser />
+      <Users />
     </>
   )
 }

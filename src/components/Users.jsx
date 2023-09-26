@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function UserData() {
+export default function Users() {
   const [userDataList, setUserDataList] = useState([]);
 
   async function getUsers() {
