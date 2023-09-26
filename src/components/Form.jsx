@@ -2,11 +2,12 @@ import { useState } from 'react'
 
 export default function Form(){
     const [formData, setFormData] = useState({
-        firstName:"",
-        lastName:""
+        username:"",
+        password:"",
+        role:"User"
         })
 
-        function handleChange(event){
+    function handleChange(event){
         console.log(event)
         const { name, value } = event.target
         setFormData(prevFormData => {
@@ -17,6 +18,16 @@ export default function Form(){
         })
     }
 
+    function handleSubmit(event){
+        event.preventDefault();
+        fetch(`https://localhost:7260/post`, {
+            method: 'POST',
+            headers: { "Content-Type": "application/json "},
+            body: JSON.stringify(formData)
+        })
+        console.log(formData)
+    }
+
     return (
         <>
             <div className="form-data-value">
@@ -24,24 +35,24 @@ export default function Form(){
                 <div>{formData.lastName}</div>
             </div>
             <div>
-                <form className='form'>
+                <form className='form' onSubmit={handleSubmit}>
                     <input 
                     type="text"
-                    placeholder="First Name"
+                    placeholder="Username"
                     onChange={handleChange}
-                    name="firstName"
-                    value={formData.firstName}
+                    name="username"
+                    value={formData.username}
                     className="form-input" />
 
                     <input 
-                    type="text"
-                    placeholder="Last Name"
+                    type="password"
+                    placeholder="Password"
                     onChange={handleChange}
-                    name="lastName"
-                    value={formData.lastName}
+                    name="password"
+                    value={formData.password}
                     className="form-input" />
 
-                    <button type="submit" className='style-button'>Submit</button>
+                    <button type="submit" className='style-button'>Create</button>
                 </form>
             </div>
         </>
