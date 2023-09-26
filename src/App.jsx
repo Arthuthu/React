@@ -1,13 +1,13 @@
-import Form from './components/Form'
-import UserApiCall from './components/UserApiCall'
+import CreateUserForm from './components/CreateUserForm'
+import GetUsers from './components/GetUsers'
 import './App.css'
 
 function App() {
 
   return (
     <>
-      <Form />
-      <UserApiCall />
+      <CreateUserForm />
+      <GetUsers />
     </>
   )
 }
